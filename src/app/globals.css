@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* RedVault Custom Palette - Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    
+    --card: 0 0% 91%; /* #E8E8E8 */
+    --card-foreground: 0 0% 0%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    
+    --primary: 0 77% 42%; /* #B91C1C - Bold Red */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 82%; /* #D1D1D1 - Light Gray */
+    --secondary-foreground: 0 0% 0%;
+    
+    --muted: 0 0% 72%; /* #B8B8B8 - Medium Gray */
+    --muted-foreground: 0 0% 35%;
+    
+    --accent: 0 73% 50%; /* #DC2626 - Bright Red */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%; /* #EF4444 - Light Red */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 82%; /* #D1D1D1 */
+    --input: 0 0% 82%;
+    --ring: 0 77% 42%; /* #B91C1C */
+    
+    --radius: 0.5rem;
+    
+    --chart-1: 0 77% 42%;
+    --chart-2: 0 73% 50%;
+    --chart-3: 0 84% 60%;
+    --chart-4: 0 0% 72%;
+    --chart-5: 0 65% 10%;
+  }
+
+  .dark {
+    /* RedVault Custom Palette - Dark Mode */
+    --background: 0 0% 0%; /* Pure Black */
+    --foreground: 0 0% 91%; /* Light Gray Text */
+    
+    --card: 0 65% 10%; /* #6B0F1A - Deep Burgundy for cards */
+    --card-foreground: 0 0% 91%;
+    
+    --popover: 0 75% 8%; /* Very dark burgundy */
+    --popover-foreground: 0 0% 91%;
+    
+    --primary: 0 77% 42%; /* #B91C1C - Bold Red */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 73% 27%; /* #8B1A1A - Dark Red */
+    --secondary-foreground: 0 0% 91%;
+    
+    --muted: 0 0% 20%; /* Dark muted */
+    --muted-foreground: 0 0% 72%;
+    
+    --accent: 0 73% 50%; /* #DC2626 - Bright Red */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%; /* #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 65% 15%; /* Dark burgundy borders */
+    --input: 0 65% 15%;
+    --ring: 0 73% 50%; /* Bright red ring */
+    
+    --chart-1: 0 77% 42%;
+    --chart-2: 0 73% 50%;
+    --chart-3: 0 84% 60%;
+    --chart-4: 0 0% 72%;
+    --chart-5: 0 65% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar styling for RedVault theme */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-vault-gray-lighter dark:bg-vault-burgundy-dark;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-vault-red hover:bg-vault-red-bright rounded-full;
+  }
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
