@@ -1,5 +1,9 @@
 # RedVault - Secure Cloud Storage Frontend
 
+[![CI](https://github.com/gentlerhiz/RedVault/actions/workflows/ci.yml/badge.svg)](https://github.com/gentlerhiz/RedVault/actions/workflows/ci.yml)
+
+A modern cloud storage platform that focuses on security, speed, and simplicity.
+
 ## 🎯 Project Overview
 
 RedVault is a modern, secure cloud storage SaaS application frontend built with Next.js 14, TypeScript, and TailwindCSS. This is a **frontend-only** application that connects to a separate backend API.
@@ -70,7 +74,7 @@ src/
 
 ## 🎨 Design System
 
-- **Primary Color**: Red Vault (#DC2626)
+- **Primary Color**: Red Vault (#B91C1C), with `vault-*` shades in `tailwind.config.ts`
 - **Dark/Light Mode**: Fully supported
 - **Responsive**: Mobile-first design
 - **Animations**: Framer Motion throughout
@@ -78,11 +82,26 @@ src/
 
 ## 🔧 Environment Variables
 
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000/api
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
-NEXT_PUBLIC_POSTHOG_KEY=phc_...
-```
+Copy `.env.example` to `.env.local` and fill in the values:
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_APP_URL` | Public URL of the app (`http://localhost:3000` locally) |
+| `NEXT_PUBLIC_APP_NAME` | Display name, defaults to `RedVault` |
+| `NEXT_PUBLIC_API_URL` | Base URL of the backend REST API |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe publishable key (`pk_test_...` for development) |
+| `NEXT_PUBLIC_POSTHOG_KEY` | PostHog project key |
+| `NEXT_PUBLIC_POSTHOG_HOST` | PostHog host, e.g. `https://app.posthog.com` |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics measurement ID |
+
+## 🧰 Scripts
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Start the dev server on port 3000 |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
 ## 📝 Next Steps
 
@@ -103,9 +122,10 @@ The frontend expects a REST API with these endpoints:
 - `GET /api/subscriptions/current`
 - See `src/services/` for complete API contract
 
+## 🤝 Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, branch naming and the checks CI runs. To report a vulnerability, follow [SECURITY.md](SECURITY.md) instead of opening a public issue.
+
 ---
 
 **Built with ❤️ for secure file storage**
-A modern cloud storage platform that focuses on security, speed, and simplicity.
-
-Addedd from local
